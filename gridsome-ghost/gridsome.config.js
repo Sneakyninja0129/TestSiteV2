@@ -17,7 +17,7 @@ module.exports = {
     {
       use: '@gridsome/source-ghost',
       options: {
-        baseUrl: 'http://localhost:8080',
+        baseUrl: 'https://testsitev2.pages.dev/',
         contentKey: '22444f78447824223cefc48062',
         routes: {
           post: '/:slug',

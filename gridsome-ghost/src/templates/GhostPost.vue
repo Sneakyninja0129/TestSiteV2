@@ -55,20 +55,19 @@ export default {
 </script>
 
 <page-query>
-query Post ($id: ID!) {
-  post: post (id: $id) {
+query Post ($path: String!) {
+  post: ghostPost (path: $path) {
     title
     path
-    date (format: "D. MMMM YYYY")
-    timeToRead
+    date: published_at (format: "D. MMMM YYYY")
     tags {
       id
-      title
+      title: name
       path
     }
-    description
-    content
-    cover_image (width: 860, blur: 10)
+    description: excerpt
+    content: html
+    coverImage: feature_image
   }
 }
 </page-query>
