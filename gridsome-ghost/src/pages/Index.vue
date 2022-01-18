@@ -12,20 +12,22 @@
 </template>
 
 <page-query>
-{
-  posts: allGhostPost(
-      sortBy: "published_at",
-      order: DESC,
-  ) {
+query {
+  posts: allPost(filter: { published: { eq: true }}) {
     edges {
       node {
-        title
-        description: excerpt
-        date: published_at (format: "D. MMMM YYYY")
-        path
-        slug
         id
-        coverImage: feature_image
+        title
+        date (format: "D. MMMM YYYY")
+        timeToRead
+        description
+        cover_image (width: 770, height: 380, blur: 10)
+        path
+        tags {
+          id
+          title
+          path
+        }
       }
     }
   }
